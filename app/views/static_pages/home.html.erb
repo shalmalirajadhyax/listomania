@@ -7,8 +7,8 @@
 
 <table class = "table" align="center">
 <tr>
-<td> New Visitors <br><%= link_to "Create Account", 'signup_path', class: "btn btn-large btn-primary" %> </font> </td>
-<td> <form role="form">
+<td> <h4> New Visitors </h4> <br> <br><%= link_to "Create Account", 'signup_path', class: "btn btn-large btn-primary" %> </font> </td>
+<td> <h4> Returning Visitors </h4> <br><br><form role="form">
   <div class="form-group">
     <label for="homepgemail">Email address</label>
     <input type="email" class="form-control" id="homepgemail" placeholder="Enter email">
@@ -17,7 +17,7 @@
     <label for="homepgpassword">Password</label>
     <input type="password" class="form-control" id="homepgpassword" placeholder="Password">
   </div>
-<%= link_to "Forgot?", "#" %><br>
+<%= link_to "Forgot?", "#" %> <button type="button" class="btn btn-primary">Sign In</button>
 </td>
 </tr>
 </table>

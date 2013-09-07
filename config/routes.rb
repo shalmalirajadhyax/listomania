@@ -1,9 +1,11 @@
 Listomania::Application.routes.draw do
-  get "users/new"
+
 
 	root to: 'static_pages#home'
 	match '/signup_path', to: 'users#new'
+	match '/root_path', to: 'static_pages#home'
 	
+	resources :users
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
