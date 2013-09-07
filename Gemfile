@@ -6,9 +6,11 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby', '3.0.1'
 
 group :development do
 	gem 'sqlite3'
+	gem 'annotate'
 end
 
 # Gems used only for assets and not required
