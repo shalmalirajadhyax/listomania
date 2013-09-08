@@ -1,11 +1,18 @@
 Listomania::Application.routes.draw do
 
-
+	 
 	root to: 'static_pages#home'
 	match '/signup_path', to: 'users#new'
 	match '/root_path', to: 'static_pages#home'
+	match 'users/root_path', to: 'static_pages#home'
 	
 	resources :users
+	resources :sessions, only: [:new, :create, :destroy]
+	
+	match '/signin_path', to: 'sessions#new'
+	match '/signout_path', to: 'sessions#destroy', via: :delete
+	match 'users/signout_path', to: 'sessions#destroy', via: :delete
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
