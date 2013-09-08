@@ -1,10 +1,11 @@
-<li id="<%= @task_feed_item.id %>">
+<li id="<%= task_feed_item.id %>">
   
-  <span class="user">
-    <%= link_to @task_feed_item.user.name, @task_feed_item.user %>
-  </span>
-  <span class="task_name"><%= @task_feed_item.task_name %></span>
+ 
+  <span class="task_name"><%= task_feed_item.task_name %></span><br>
   <span class="task_category">
-    Category <%= @task_feed_item.task_category %> 
+    Category: <%= task_feed_item.task_category %> ||
   </span>
+  <% if current_user? (task_feed_item.user) %>
+  <%= link_to "Delete", task_feed_item, method: :delete, data: { confirm: "Are you sure?"}, title: task_feed_item.task_name, style: 'color:#0000FF;' %>
+  <% end %>
 </li>

@@ -1,6 +1,9 @@
 <li>
   <span class="content"><%= task.task_name %></span>
   <span class="category">
-    Category <%= task.task_category %>
+    Category: <%= task.task_category %> ||
   </span>
+  <% if current_user? (task.user) %>
+  <%= link_to "Delete", task, method: :delete, data: { confirm: "Are you sure?"}, title: task.task_name, style: 'color:#0000FF;' %>
+  <% end %>
 </li>
