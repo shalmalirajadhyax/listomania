@@ -1,0 +1,11 @@
+<span>
+<h2>
+  <%= current_user.name %>
+</h2>
+</span>
+<span>
+  <%= link_to "view my profile", current_user %>
+</span>
+<span>
+  <%= pluralize(current_user.tasks.count, "Task") %>
+</span>

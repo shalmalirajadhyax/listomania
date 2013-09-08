@@ -1,22 +1,39 @@
 <% provide(:title, 'Home') %>
-<div class = "center hero-unit">
-
-<h2 align = "center"> Welcome to Listomania</h2>
-<h3 align = "center"> Making to-do lists has never been so much fun!!</h3>
-
-
-<table class = "table" align="center" width = "100%">
-<tr>
-<td> <h4> New Visitors </h4> <br> <br> <%= link_to "Create Account", 'signup_path', class: "btn btn-large btn-primary" %> </font> </td>
-<td> <h4> Returning Visitors </h4> <br> <br> 
-<% if signed_in? %>
-<%= link_to "Sign In", 'signin_path', class: "btn btn-large btn-primary disabled" %> </font> </td>
-<% else %>
-<%= link_to "Sign In", 'signin_path', class: "btn btn-large btn-primary" %> </font> </td>
-<% end %>
-</tr>
-</table>
-
+	<% if signed_in? %>
+		<div class="row">
+			<aside class="span4">
+				<section>
+					<%= render 'shared/user_info' %>
+				</section>
+				<section>
+					<%= render 'shared/task_form' %>
+				</section>
+			</aside>
+		<div class = "span5"> 
+		<section>
+			<h2> To do list </h2>
+			<%= render 'shared/task_feed' %>
+		</section>
+		</div>
+		
+		</div>
+	<% else %>
+		<div class = "center hero-unit">
+		<h2 align = "center"> Welcome to Listomania</h2>
+		<h3 align = "center"> Making to-do lists has never been so much fun!!</h3>
+		<table class = "table" align="center" width = "100%">
+			<tr>
+				<td> <h4> New Visitors </h4> <br> <br> <%= link_to "Create Account", 'signup_path', class: "btn btn-large btn-primary" %> </font> </td>
+				<td> <h4> Returning Visitors </h4> <br> <br> 
+					<% if signed_in? %>
+						<%= link_to "Sign In", 'signin_path', class: "btn btn-large btn-primary disabled" %> </font> </td>
+					<% else %>
+						<%= link_to "Sign In", 'signin_path', class: "btn btn-large btn-primary" %> </font> </td>
+					<% end %>
+	
+			</tr>
+		</table>
+	<% end %>
 </div>
 
 

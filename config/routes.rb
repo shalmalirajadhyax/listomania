@@ -8,6 +8,7 @@ Listomania::Application.routes.draw do
 	
 	resources :users
 	resources :sessions, only: [:new, :create, :destroy]
+	resources :tasks, only: [:create, :destroy]
 	
 	match '/signin_path', to: 'sessions#new'
 	match '/signout_path', to: 'sessions#destroy', via: :delete

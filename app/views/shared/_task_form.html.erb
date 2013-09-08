@@ -1,0 +1,14 @@
+<%= form_for(@task) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :task_name, placeholder: "Create a new task..." %>
+  </div>
+  
+  <div class = "dropdownmenu">
+  <%= f.select :task_category, options_for_select(['Home', 'School', 'Shopping'], params[:task])%> 
+  
+ 
+   </div>
+
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

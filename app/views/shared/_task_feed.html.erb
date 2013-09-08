@@ -1,0 +1,6 @@
+<% unless @task_feed_items == nil %>
+  <ol class="tasks">
+    <%= render partial: 'shared/task_feed_item', collection: @task_feed_items %>
+  </ol>
+  
+<% end %>

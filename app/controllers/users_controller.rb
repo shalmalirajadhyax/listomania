@@ -21,6 +21,7 @@ before_filter :correct_user, only: [:edit, :update]
 
   def show
 	@user = User.find(params[:id])
+	@tasks = @user.tasks.find_by_user_id(params[:id])
   end
   
   def edit
@@ -39,13 +40,6 @@ before_filter :correct_user, only: [:edit, :update]
 	end
  
 	private
-	
-	def signed_in_user
-		unless signed_in?
-			store_location
-			redirect_to '/signin_path', notice: "Please sign in" 
-		end
-	end
 	
 	def correct_user
 		@user = User.find (params[:id])

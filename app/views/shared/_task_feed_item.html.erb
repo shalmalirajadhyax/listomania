@@ -1,0 +1,10 @@
+<li id="<%= @task_feed_item.id %>">
+  
+  <span class="user">
+    <%= link_to @task_feed_item.user.name, @task_feed_item.user %>
+  </span>
+  <span class="task_name"><%= @task_feed_item.task_name %></span>
+  <span class="task_category">
+    Category <%= @task_feed_item.task_category %> 
+  </span>
+</li>
