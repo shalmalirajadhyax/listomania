@@ -20,6 +20,7 @@ module SessionsHelper
 		self.current_user = nil
 		@current_user = nil
 		cookies.delete(:remember_token)
+		reset_session
 		redirect_to root_url
 	end
 	
