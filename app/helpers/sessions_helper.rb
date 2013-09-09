@@ -9,7 +9,9 @@ module SessionsHelper
 	end
 	
 	def current_user
+		if cookies[:remember_token] #new addition to check if user is already signed in
 		@current_user ||= User.find_by_remember_token(cookies[:remember_token])
+		end
 	end
 	
 	def signed_in?
