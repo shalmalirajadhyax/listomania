@@ -11,8 +11,8 @@ Listomania::Application.routes.draw do
 	resources :tasks, only: [:create, :destroy]
 	
 	match '/signin_path', to: 'sessions#new'
-	match '/signout_path', to: 'sessions#destroy', via: :delete
-	match '/users/signout_path', to: 'sessions#destroy', via: :delete
+	
+	match '*signout_path', to: 'sessions#destroy', via: :delete
 	
 	
   # The priority is based upon order of creation:
