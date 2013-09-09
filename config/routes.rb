@@ -12,7 +12,7 @@ Listomania::Application.routes.draw do
 	
 	match '/signin_path', to: 'sessions#new'
 	match '/signout_path', to: 'sessions#destroy', via: :delete
-	match 'users/signout_path', to: 'sessions#destroy', via: :delete
+	match '/users/signout_path', to: 'sessions#destroy', via: :delete
 	
 	
   # The priority is based upon order of creation:
