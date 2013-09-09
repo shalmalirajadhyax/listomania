@@ -9,7 +9,9 @@ module SessionsHelper
 	end
 	
 	def current_user
+		if signed_in?
 		@current_user ||= User.find_by_remember_token(cookies[:remember_token])
+		end
 	end
 	
 	def signed_in?
@@ -17,10 +19,8 @@ module SessionsHelper
 	end
 	
 	def sign_out
-		
 		current_user = nil
 		cookies.delete(:remember_token)
-		
 		redirect_to root_url
 	end
 	
