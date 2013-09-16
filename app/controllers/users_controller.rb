@@ -1,4 +1,6 @@
+require 'will_paginate/array'
 class UsersController < ApplicationController
+
 
 before_filter :signed_in_user, only: [:edit, :update]
 before_filter :correct_user, only: [:edit, :update]
@@ -21,7 +23,15 @@ before_filter :correct_user, only: [:edit, :update]
 
   def show
 	@user = User.find(params[:id])
-	@tasks = @user.tasks.find_by_user_id(params[:id])
+	@tasks = @user.tasks.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+	#@user.tasks.find_by_user_id(params[:id]).paginate(:per_page => 5, :page => params[:page])
+	
+	
+	respond_to do |format|
+	format.html
+	format.xml {render :xml => @user.tasks } #rendering XML
+	
+	end
   end
   
   def edit
@@ -39,6 +49,13 @@ before_filter :correct_user, only: [:edit, :update]
 		end
 	end
  
+  def destroy
+	reset_session
+	User.find(params[:id]).destroy
+	flash[:success] = "Profile deleted!"
+	redirect_to root_url
+  end
+	
 	private
 	
 	def correct_user
