@@ -23,7 +23,7 @@
 		<h3 align = "center"> Making to-do lists has never been so much fun!!</h3>
 		<table class = "table" align="center" width = "100%">
 			<tr>
-				<td> <h4> New Visitors </h4> <br> <br> <%= link_to "Create Account", 'login', class: "btn btn-large btn-primary" %> </font> </td> <!-- changed from signup_path to login-->
+				<td> <h4> New Visitors </h4> <br> <br> <%= link_to "Create Account", 'logon', class: "btn btn-large btn-primary" %> </font> </td> <!-- changed from signup_path to login-->
 				<td> <h4> Returning Visitors </h4> <br> <br> 
 					<% if signed_in? %>
 						<%= link_to "Sign In", 'login', class: "btn btn-large btn-primary disabled" %> </font> </td>
@@ -35,5 +35,3 @@
 		</table>
 	<% end %>
 </div>
-
-
