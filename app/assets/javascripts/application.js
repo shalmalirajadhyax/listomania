@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap
+
+$(function(){
+	$("#task th a, #task .pagination a").click(function() {
+		$.getScript(this.href);
+		return false;
+});
+});
+
+$(function() {
+	$("#task_search").submit(function() {
+		$.get(this.action, $(this).serialize(), null, "script");
+		return false;
+	});
+});
