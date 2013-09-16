@@ -1,0 +1,15 @@
+<% if @user.tasks.any? %>
+      <h4>Tasks (<%= @user.tasks.count %>)</h4>
+	  <%= form_tag(render partial: 'shared/task_feed', :method => 'get', :id => "task_search") do %>
+	  <p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", :task_name => nil %>
+	  </p>
+	  <% end %>
+	  
+      <ul class="Tasks">
+       <%= render @tasks %>
+	   <%= will_paginate @tasks %>
+	  </ul>
+	    <!--@user.tasks -->
+    <% end %>
