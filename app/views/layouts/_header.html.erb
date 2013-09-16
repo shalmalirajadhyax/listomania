@@ -17,13 +17,14 @@
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Sign out", 'logout' , method: "delete" %> <!-- changed from 'logout_url' to 'logout' -->
+                  <!--<%= link_to "Sign out", 'logout' , method: "delete" %> <!-- changed from 'logout_url' to 'logout' -->
+				  <%= link_to "Sign out", controller: 'sessions', action: 'destroy' %>
                 </li>
               </ul>
             </li>
           <% else %>
             <li><%= link_to "Sign in", 'login' %></li> <!-- changed from login_url to login -->
-          <% end %>
+		  <% end %>
 	</ul>
 	</nav>
 	</div>
