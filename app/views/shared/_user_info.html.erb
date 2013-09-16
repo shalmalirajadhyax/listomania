@@ -4,7 +4,8 @@
 </h2>
 </span>
 <span>
-  <%= link_to "View all Tasks", current_user, style: 'color:#0000FF;'%>
+  <%= link_to "View all Tasks", current_user, style: 'color:#0000FF;'%>|
+  <%= link_to "Delete Profile", current_user, method: :delete, data: {confirm: "Are you sure?"}, style: 'color:#0000FF;' %>
 </span>
 <span>
   <%= pluralize(current_user.tasks.count, "Task") %>
